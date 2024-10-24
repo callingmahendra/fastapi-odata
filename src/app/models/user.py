@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from core.database import Base
+from app.core.database import Base, engine
 
 class User(Base):
     __tablename__ = "users"
@@ -10,3 +10,5 @@ class User(Base):
     full_name = Column(String)
     hashed_password = Column(String)
     is_active = Column(Integer, default=1)
+
+Base.metadata.create_all(engine)
