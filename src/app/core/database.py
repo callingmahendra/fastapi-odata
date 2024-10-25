@@ -6,8 +6,18 @@ from app.core.config import settings
 SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+"""
+SQLAlchemy engine for database connection.
+
+This engine is used to connect to the database specified by the DATABASE_URL.
+"""
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+"""
+SQLAlchemy session factory.
+
+This session factory is used to create database sessions for interacting with the database.
+"""
 
 Base = declarative_base()
 
