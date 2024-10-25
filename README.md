@@ -94,3 +94,20 @@ To update a user, send a PUT request to the `/users/{user_id}` endpoint with the
 ### Delete a User
 
 To delete a user, send a DELETE request to the `/users/{user_id}` endpoint.
+
+### OData Endpoints
+
+To query users using OData, send a POST request to the `/odata/users` endpoint with the following JSON payload:
+```json
+{
+  "filter": "username eq 'testuser'"
+}
+```
+
+You can use OData query options to filter,. For example:
+
+- Filter users by username:
+  ```bash
+  curl -X POST "http://localhost:8000/odata/users" -H "Content-Type: application/json" -d '{"filter": "username eq 'testuser'"}'
+  ```
+
