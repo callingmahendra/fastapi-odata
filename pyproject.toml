@@ -1,0 +1,6 @@
+[tool.pslint]
+max-line-length = 100
+exclude = ["migrations", "tests"]
+
+[project]
+disable = [ "C0114" ]

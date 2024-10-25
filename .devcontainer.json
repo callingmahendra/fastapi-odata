@@ -1,6 +1,6 @@
 {
   "tasks": {
     "build": "pip install -r src/requirements.txt",
-    "launch": "fastapi dev main.py"
+    "launch": "cd src && uvicorn main:app"
   }
 }
