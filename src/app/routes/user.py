@@ -15,7 +15,6 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 
     Args:
         user_id (int): The ID of the user to retrieve.
-        db (Session): The database session.
 
     Returns:
         user_schema.User: The retrieved user.
@@ -35,7 +34,6 @@ def create_user(user: user_schema.UserCreate, db: Session = Depends(get_db)):
 
     Args:
         user (user_schema.UserCreate): The user data for creating a new user.
-        db (Session): The database session.
 
     Returns:
         user_schema.User: The created user.
@@ -50,7 +48,6 @@ def update_user(user_id: int, user: user_schema.UserUpdate, db: Session = Depend
     Args:
         user_id (int): The ID of the user to update.
         user (user_schema.UserUpdate): The updated user data.
-        db (Session): The database session.
 
     Returns:
         user_schema.User: The updated user.
@@ -70,7 +67,6 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
 
     Args:
         user_id (int): The ID of the user to delete.
-        db (Session): The database session.
 
     Returns:
         user_schema.User: The deleted user.
