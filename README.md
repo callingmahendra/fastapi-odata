@@ -97,24 +97,17 @@ To delete a user, send a DELETE request to the `/users/{user_id}` endpoint.
 
 ### OData Endpoints
 
-To query users using OData, send a GET request to the `/odata/users` endpoint. You can use OData query options to filter, sort, and paginate the results. For example:
+To query users using OData, send a POST request to the `/odata/users` endpoint with the following JSON payload:
+```json
+{
+  "filter": "username eq 'testuser'"
+}
+```
 
-- Retrieve all users:
-  ```bash
-  curl -X GET "http://localhost:8000/odata/users"
-  ```
+You can use OData query options to filter,. For example:
 
 - Filter users by username:
   ```bash
-  curl -X GET "http://localhost:8000/odata/users?$filter=username eq 'testuser'"
+  curl -X POST "http://localhost:8000/odata/users" -H "Content-Type: application/json" -d '{"filter": "username eq 'testuser'"}'
   ```
 
-- Sort users by email:
-  ```bash
-  curl -X GET "http://localhost:8000/odata/users?$orderby=email"
-  ```
-
-- Paginate users:
-  ```bash
-  curl -X GET "http://localhost:8000/odata/users?$top=10&$skip=0"
-  ```

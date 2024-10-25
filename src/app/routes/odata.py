@@ -4,18 +4,19 @@ from sqlalchemy.orm import Session
 from odata_query.sqlalchemy import apply_odata_query
 from app.core.database import get_db
 from app.models.user import User
+from app.schemas.user import UserSearch
 
 router = APIRouter()
 
 @router.post("/users")
-def get_users(db: Session = Depends(get_db), filter: str = None):
+def get_users(user_search: UserSearch, db: Session = Depends(get_db) ):
     try:
-        print(filter)
-        odata_query = "username eq 'testuser'"  # This will usually come from a query string parameter.
 
         orm_query = select(User)  # This is any form of Query or Selectable.
-        query = apply_odata_query(orm_query, odata_query)
-        users = db.execute(query).scalars().all()
+        users=[]
+        if(user_search.filter):
+            query = apply_odata_query(orm_query, user_search.filter)
+            users = db.execute(query).scalars().all()
         print(users)
         return users
     except Exception as e:

@@ -52,3 +52,6 @@ class UserUpdate(BaseModel):
     full_name: Optional[str] = None
     password: Optional[str] = None
     is_active: Optional[bool] = None
+
+class UserSearch(BaseModel):
+    filter : Optional[str] = None
