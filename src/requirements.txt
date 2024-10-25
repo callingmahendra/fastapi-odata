@@ -6,3 +6,5 @@ pytest
 pytest-asyncio
 httpx
 odata-query
+pylint
+mypy
