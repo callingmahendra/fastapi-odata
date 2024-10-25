@@ -11,7 +11,7 @@ router = APIRouter()
 def get_users(db: Session = Depends(get_db), filter: str = None):
     try:
         print(filter)
-        odata_query = "username eq 'testuser'"  # This will usually come from a query string parameter.
+        odata_query = filter  # Use the filter parameter to generate the OData query.
 
         orm_query = select(User)  # This is any form of Query or Selectable.
         query = apply_odata_query(orm_query, odata_query)
