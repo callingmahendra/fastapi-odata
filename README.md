@@ -4,6 +4,25 @@
 
 This project is a FastAPI application that provides an OData API for managing user data. It includes features such as user creation, retrieval, updating, and deletion.
 
+## Project Structure
+
+The project structure is as follows:
+
+```
+src/
+├── app/
+│   ├── core/
+│   ├── models/
+│   ├── routes/
+│   ├── schemas/
+│   ├── services/
+├── tests/
+├── main.py
+├── requirements.txt
+└── tests/
+    └── test_user.py
+```
+
 ## Installation Instructions
 
 1. Clone the repository:
@@ -27,6 +46,20 @@ This project is a FastAPI application that provides an OData API for managing us
    ```bash
    cd src
    uvicorn main:app --reload
+   ```
+
+## Docker Instructions
+
+To build and run the Docker container, follow these steps:
+
+1. Build the Docker image:
+   ```bash
+   docker build -t fastapi-odata .
+   ```
+
+2. Run the Docker container:
+   ```bash
+   docker run -p 80:80 fastapi-odata
    ```
 
 ## Usage Examples
